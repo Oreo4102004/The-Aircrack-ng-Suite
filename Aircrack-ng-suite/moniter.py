@@ -1,6 +1,4 @@
 import subprocess
-import colorama
-import re
 
 
 def monitor():
@@ -10,7 +8,3 @@ def monitor():
         return False
     elif "Monitor" in result:
         return True
-
-
-if monitor() is False:
-    print("managed")
