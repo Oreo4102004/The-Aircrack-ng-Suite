@@ -5,7 +5,6 @@ import moniter
 import colorama
 import Checker
 
-
 colorama.init(autoreset=True)
 
 Checker.check()
@@ -24,11 +23,19 @@ elif monitor_check is False:
 
 print(colorama.Fore.LIGHTCYAN_EX + "[+]Done!")
 
+
+def scan():
+    try:
+        subprocess.run(f'xterm -hold -e sudo airodump-ng {wifi_interface}mon', shell=True)
+    except KeyboardInterrupt:
+        print("[-]Stopping the scan")
+
+
 while True:
     start_scan = input("Start Scan? (Y/n):")
     if start_scan.lower() == 'y':
         print("[+]Starting The Scan!")
-        # insert code here
+        scan()
         break
     elif start_scan.lower() == 'n':
         while True:

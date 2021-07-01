@@ -38,3 +38,6 @@ def check_wireless():
 
     wifi_interface = wifi_check[int(wifi_interface_choice)]
     return wifi_interface
+
+
+
