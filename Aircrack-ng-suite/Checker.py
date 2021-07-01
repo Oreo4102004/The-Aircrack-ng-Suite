@@ -33,3 +33,4 @@ def check():
     else:
         print(colorama.Fore.RED + "[-]You don't have the tools required")
         sys.exit(colorama.Fore.RED + "Consider installing aircrack-ng\n")
+
