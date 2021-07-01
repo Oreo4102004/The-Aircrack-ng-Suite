@@ -44,3 +44,8 @@ elif lets_check is False:
     time.sleep(1)
     subprocess.run("sudo airmon-ng check kill", shell=True)
     subprocess.run(f"sudo airmon-ng start {wifi_interface}", shell=True)
+
+print(colorama.Fore.LIGHTCYAN_EX + "[+]Done!")
+while True:
+    start_scan = input("Start Scan? (Y/n):")
+    
