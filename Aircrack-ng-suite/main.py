@@ -48,5 +48,20 @@ elif lets_check is False:
 print(colorama.Fore.LIGHTCYAN_EX + "[+]Done!")
 while True:
     start_scan = input("Start Scan? (Y/n):")
-    if start_scan. == 'y':
-
+    if start_scan.lower() == 'y':
+        print("[+]Starting The Scan!")
+        # insert code here
+        break
+    elif start_scan.lower() == 'n':
+        while True:
+            exit_check = input("[*]Do You Want To Exit(Y/n):")
+            if exit_check.lower() == 'n':
+                break
+            elif exit_check.lower() == 'y':
+                sys.exit('Exiting!')
+            else:
+                print(colorama.Fore.RED + "[-]not a valid argument")
+                continue
+    else:
+        print(colorama.Fore.RED + "[-]Not a valid argument")
+        continue
