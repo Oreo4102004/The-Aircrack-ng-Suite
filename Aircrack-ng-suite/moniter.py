@@ -7,11 +7,10 @@ def monitor():
     print("[*]Checking for monitor mode")
     result = subprocess.run("iwconfig", shell=True, capture_output=True).stdout.decode()
     if "Managed" in result:
-        print("[-]ur wireless network card is in Managed mode")
+        return False
     elif "Monitor" in result:
-        print("[+]its in Monitor mode")
-    else:
-        print("no network card")
+        return True
 
 
-monitor()
+if monitor() is False:
+    print("managed")

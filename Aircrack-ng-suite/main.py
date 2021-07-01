@@ -3,7 +3,7 @@ import os
 import subprocess
 import re
 import time
-
+import moniter
 import colorama
 import Checker
 
@@ -34,10 +34,13 @@ while True:
 
 wifi_interface = wifi_check[int(wifi_interface_choice)]
 
+lets_check = moniter.monitor()
+if lets_check is True:
+    print(colorama.Fore.LIGHTCYAN_EX + "[+]It is already in monitor mode")
+    print(colorama.Fore.LIGHTCYAN_EX + "[+]Starting scan")
 
-
-print(colorama.Fore.LIGHTCYAN_EX + "[+]Putting the interface to monitor mode!")
-time.sleep(1)
-subprocess.run("sudo airmon-ng check kill", shell=True)
-subprocess.run(f"sudo airmon-ng start {wifi_interface}", shell=True)
-print(subprocess.run(f"sudo airodump-ng  {wifi_interface}mon", shell=True, capture_output=True).stdout.decode())
+elif lets_check is False:
+    print(colorama.Fore.LIGHTCYAN_EX + "[+]Putting the interface to monitor mode!")
+    time.sleep(1)
+    subprocess.run("sudo airmon-ng check kill", shell=True)
+    subprocess.run(f"sudo airmon-ng start {wifi_interface}", shell=True)
