@@ -48,4 +48,5 @@ elif lets_check is False:
 print(colorama.Fore.LIGHTCYAN_EX + "[+]Done!")
 while True:
     start_scan = input("Start Scan? (Y/n):")
-    
+    if start_scan. == 'y':
+
